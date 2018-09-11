@@ -6,11 +6,13 @@ ui = require "UI/ui"
 width = love.graphics.getWidth()
 height = love.graphics.getHeight()
 
-defaultFont = love.graphics.newFont("assets/Times New Roman.ttf", 25)
+defaultFont = love.graphics.newFont("assets/Times New Roman.ttf", 20)
 
 function love.load()
   render:create(4)
-  
+
+  ui.list:create()
+
   love.graphics.setBackgroundColor(.9,.9,.9)
   love.keyboard.setKeyRepeat(true)
 end

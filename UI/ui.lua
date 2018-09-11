@@ -1,18 +1,21 @@
-local ui = {
-  button = require "UI/button",
+local ui  = {
+  button  = require "UI/button",
   textBox = require "UI/textBox",
-  number = require "UI/number"
+  number  = require "UI/number",
+  list    = require "UI/list"
 }
 
 function ui:onClick(b)
   self.button:onClick(b)
   self.textBox:onClick(b)
+  self.list:onClick(b)
 end
 
 function ui:show()
   self.button:show()
   self.textBox:show()
   self.number:show()
+  self.list:show()
 end
 
 function ui:textinput(text)

@@ -93,6 +93,27 @@ function render:circle(m,x,y,rad,l,c,line)
   table.insert(self[layer],r)
 end
 
+function render:dottedLine(x,y,x2,y2,st,w,l,c)
+  local r = {}
+  r.type = "dline"
+  r.x = x or 0
+  r.y = y or 0
+  r.x2 = x2 or 100
+  r.y2 = y2 or 100
+  r.st = st or 10
+  r.w = w or 2
+  r.c = c or {1,1,1}
+
+  local layer = l or 1
+  if layer < 1 then
+    layer = 1
+  elseif layer > #render then
+    layer = #render
+  end
+
+  table.insert(self[layer],r)
+end
+
 function render:img(img,x,y,l,c)
   local r = {}
   r.type = "img"
@@ -126,6 +147,22 @@ function render:show(n)
     elseif r.type == "circ" then
       love.graphics.setLineWidth(r.line)
       love.graphics.circle(r.m,r.x,r.y,r.rad)
+    elseif r.type == "dline" then
+      love.graphics.setPointSize(r.w)
+
+      local x,y = r.x2 - r.x, r.y2 - r.y
+      local len = math.sqrt(x^2 + y^2)
+      local stepx, stepy = x/len, y/len
+      x = r.x
+      y = r.y
+
+      for i = 1, len do
+        if i % r.st == 0 or i == 1 then
+          love.graphics.points(x, y)
+        end
+        x = x + stepx
+        y = y + stepy
+      end
     elseif r.type == "img" then
       love.graphics.draw(r.img,r.x,r.y)
     end

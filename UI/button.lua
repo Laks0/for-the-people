@@ -8,7 +8,7 @@ function button:create(x,y,w,h,center,t,action,val,layer,color)
   if center then
     b.x = b.x - b.w/2
   end
-  b.h = h or 50
+  b.h = h or 30
   b.t = t or "Button ".. #self+1
   b.action = action or function(id,val)
     print("Button ".. id .." pressed")
