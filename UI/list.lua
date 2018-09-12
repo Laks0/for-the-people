@@ -5,6 +5,9 @@ function list:create(x,y,center,title,default,options,action,layer)
   l.x = x or 10
   l.y = y or 10
   l.w = 250
+  if center then
+    l.x = l.x - l.w/2
+  end
   l.title = title or "List "..#self+1
   l.options = options or {"option 1","option 2"}
   l.sel = default or 1

@@ -11,8 +11,6 @@ defaultFont = love.graphics.newFont("assets/Times New Roman.ttf", 20)
 function love.load()
   render:create(4)
 
-  ui.list:create()
-
   love.graphics.setBackgroundColor(.9,.9,.9)
   love.keyboard.setKeyRepeat(true)
 end
