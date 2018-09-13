@@ -26,4 +26,11 @@ function ui:keypressed(k)
   self.textBox:keypressed(k)
 end
 
+function ui:clear()
+  self.button:clear()
+  self.textBox:clear()
+  self.number:clear()
+  self.list:clear()
+end
+
 return ui

@@ -1,5 +1,11 @@
 local button = {}
 
+function button:clear()
+  for i = 1, #self do
+    table.remove(self,1)
+  end
+end
+
 function button:create(x,y,w,h,center,t,action,val,layer,color)
   local b = {}
   b.x = x or 10

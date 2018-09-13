@@ -1,5 +1,11 @@
 local number = {}
 
+function number:clear()
+  for i = 1, #self do
+    table.remove(self,1)
+  end
+end
+
 function number:create(x,y,center,action,min,max,sum,rest,layer,font,color)
   local n = {}
   n.x = x or 10

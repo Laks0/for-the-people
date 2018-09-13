@@ -1,5 +1,11 @@
 local list = {}
 
+function list:clear()
+  for i = 1, #self do
+    table.remove(self,1)
+  end
+end
+
 function list:create(x,y,center,title,default,options,action,layer)
   local l = {}
   l.x = x or 10
@@ -17,7 +23,7 @@ function list:create(x,y,center,title,default,options,action,layer)
   end
   l.layer = layer or 3
   table.insert(self,l)
-  l.action(l.sel)
+  l.action(l.sel,#self)
 end
 
 function list:onClick(b)
@@ -28,7 +34,7 @@ function list:onClick(b)
       local optionHeight = textHeight+10
       if mouse_en(l.x,th,l.w,optionHeight) and l.sel ~= o then
         l.sel = o
-        l.action(o)
+        l.action(o,#self)
       end
       th = th + optionHeight
     end

@@ -3,13 +3,22 @@ utf8 = require "utf8"
 require "tools/render"
 ui = require "UI/ui"
 
+require "tools/sceneHandler"
+
 width = love.graphics.getWidth()
 height = love.graphics.getHeight()
 
 defaultFont = love.graphics.newFont("assets/Times New Roman.ttf", 20)
 
+math.randomseed(os.time())
+
+scene = ""
+
 function love.load()
+  print(os.time())
   render:create(4)
+
+  sceneLoad("creation")
 
   love.graphics.setBackgroundColor(.9,.9,.9)
   love.keyboard.setKeyRepeat(true)
@@ -26,6 +35,8 @@ end
 
 function love.draw()
   ui:show()
+
+  sceneDraw(scene)
 
   for i = 1, #render do
     render:show(i)

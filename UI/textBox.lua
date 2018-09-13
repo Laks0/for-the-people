@@ -1,5 +1,11 @@
 local textBox = {}
 
+function textBox:clear()
+  for i = 1, #self do
+    table.remove(self,1)
+  end
+end
+
 function textBox:create(x,y,w,center,action,name,layer,font,color)
   local t = {}
   t.x = x or 10
