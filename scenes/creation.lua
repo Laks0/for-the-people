@@ -28,6 +28,12 @@ function creation_load()
 
 
   ui.button:create(width/2,height-75,500,50,true,"Start Game",function (id,val)
-    sceneLoad("game")
+    if party.name ~= "" and party.name ~= nil then
+      sceneLoad("game")
+    end
   end)
+end
+
+function creation_draw()
+  render:textf("PARTY COLOR",0,70,"center",width,2,party.color)
 end

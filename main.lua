@@ -9,6 +9,8 @@ width = love.graphics.getWidth()
 height = love.graphics.getHeight()
 
 defaultFont = love.graphics.newFont("assets/Times New Roman.ttf", 20)
+times35     = love.graphics.newFont("assets/Times New Roman.ttf", 35)
+times12     = love.graphics.newFont("assets/Times New Roman.ttf", 12)
 
 math.randomseed(os.time())
 
@@ -26,6 +28,8 @@ end
 
 function love.update(dt)
   render:clear()
+
+  sceneUpdate(scene,dt)
 
   mouse = {
     x = love.mouse.getX(),
@@ -51,7 +55,7 @@ function love.keypressed(k, scancode, isrepeat)
   ui:keypressed(k)
 end
 
-function love.mousepressed(x, y, b, isTouch)
+function love.mousereleased(x, y, b, isTouch)
   ui:onClick(b)
 end
 

@@ -59,6 +59,8 @@ function list:show()
       local bg_color = {1,1,1}
       if l.sel == o then
         bg_color = {.7,.7,.7}
+      elseif mouse_en(l.x,oy+th,l.w,optionHeight) then
+        bg_color = {.8,.8,.8}
       end
 
       render:rectangle("fill",l.x,oy+th,l.w,optionHeight,l.layer-1,bg_color)

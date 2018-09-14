@@ -11,9 +11,15 @@ function sceneLoad(s)
 end
 
 function sceneUpdate(s,dt)
-  
+  if s == "game" then
+    game_update(dt)
+  end
 end
 
 function sceneDraw(s)
-
+  if s == "creation" then
+    creation_draw()
+  elseif s == "game" then
+    game_draw()
+  end
 end
