@@ -32,8 +32,20 @@ function creation_load()
       sceneLoad("game")
     end
   end)
+
+  ui.slider:create(width/8,150,width/4-20,true,0,1,party.color[1],function (val)
+    party.color[1] = val
+  end,nil,{1,0,0})
+
+  ui.slider:create(width/8,200,width/4-20,true,0,1,party.color[1],function (val)
+    party.color[2] = val
+  end,nil,{0,1,0})
+
+  ui.slider:create(width/8,250,width/4-20,true,0,1,party.color[1],function (val)
+    party.color[3] = val
+  end,nil,{0,0,1})
 end
 
 function creation_draw()
-  render:textf("PARTY COLOR",0,70,"center",width,2,party.color)
+  render:textf("PARTY COLOR",0,100,"center",width/4,2,party.color)
 end
